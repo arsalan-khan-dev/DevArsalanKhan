@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arsalan Khan — Full-Stack Developer & Web Security Engineer</title>
+  <meta name="description" content="Arsalan Khan — Full-Stack Web Developer focused on secure, production-grade applications. React, Node.js, PostgreSQL, and security-first API design. BS Software Engineering.">
+  <meta name="author" content="Arsalan Khan">
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="Arsalan Khan, Full Stack Developer, Web Security, React Developer, Node.js Developer, Secure Web Development, OWASP, Portfolio, Rawalpindi, Pakistan">
+  <link rel="canonical" href="https://arsalan-khan-dev.github.io/portfolio-website/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Arsalan Khan — Full-Stack Developer & Web Security Engineer">
+  <meta property="og:description" content="Full-stack web development with security built in from the first schema. React, Node.js, PostgreSQL, OWASP-aligned practices.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arsalan-khan-dev.github.io/">
+  <meta property="og:image" content="public/og-image.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arsalan Khan — Full-Stack Developer & Web Security Engineer">
+  <meta name="twitter:description" content="Full-stack web development with security built in from the first schema. React, Node.js, PostgreSQL, OWASP-aligned practices.">
+  <meta name="twitter:image" content="public/og-image.jpg">
+
+  <meta name="theme-color" content="#111111">
+  <meta name="color-scheme" content="dark light">
+
+  <!-- Preconnect & Font Preload -->
+  <!-- Font optimization -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arsalan Khan",
+    "jobTitle": "Full-Stack Web Developer & Web Security Engineer",
+    "email": "arsalankhang004@gmail.com",
+    "url": "https://arsalan-khan-dev.github.io/",
+    "knowsAbout": ["React","Node.js","TypeScript","PostgreSQL","MongoDB","Web Security","OWASP","REST API","GraphQL"],
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "BS Software Engineering"
+    }
+  }
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ═══════════════════════════════════════════════ SKIP LINK -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════════════ LOADER -->
+  <div id="loader" role="status" aria-label="Loading portfolio" aria-live="polite">
+    <div class="loader__panel loader__panel--left"></div>
+    <div class="loader__panel loader__panel--right"></div>
+    <div class="loader__center">
+      <div class="loader__logo">AK</div>
+      <div class="loader__bar-wrap"><div class="loader__bar" id="loaderBar"></div></div>
+      <div class="loader__count" id="loaderCount">00</div>
+    </div>
+    <div class="loader__scan"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ CURSOR -->
+  <div class="cursor__dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor__ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ═══════════════════════════════════════════════ NAVBAR -->
+  <header role="banner">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <a href="#hero" class="nav__logo" data-cursor="pointer">AK</a>
+
+      <ul class="nav__links" role="list">
+        <li><a href="#about" class="nav__link" data-cursor="pointer">About</a></li>
+        <li><a href="#skills" class="nav__link" data-cursor="pointer">Skills</a></li>
+        <li><a href="#services" class="nav__link" data-cursor="pointer">Services</a></li>
+        <li><a href="#projects" class="nav__link" data-cursor="pointer">Projects</a></li>
+        <li><a href="#experience" class="nav__link" data-cursor="pointer">Experience</a></li>
+        <li><a href="#resume" class="nav__link" data-cursor="pointer">Resume</a></li>
+        <li><a href="#contact" class="nav__link" data-cursor="pointer">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <a href="public/resume/arsalan-khan-cv.pdf" download class="btn btn--ghost btn--sm" data-fallback="#" data-cursor="pointer" aria-label="Download CV">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+        <button class="nav__theme" id="themeToggle" aria-label="Toggle color theme" data-cursor="pointer">
+          <svg class="theme-icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="theme-icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+
+      <button class="nav__burger" id="navBurger" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="nav__drawer" id="navDrawer" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+      <ul role="list">
+        <li><a href="#about" class="nav__drawer-link">About</a></li>
+        <li><a href="#skills" class="nav__drawer-link">Skills</a></li>
+        <li><a href="#services" class="nav__drawer-link">Services</a></li>
+        <li><a href="#projects" class="nav__drawer-link">Projects</a></li>
+        <li><a href="#experience" class="nav__drawer-link">Experience</a></li>
+        <li><a href="#resume" class="nav__drawer-link">Resume</a></li>
+        <li><a href="#contact" class="nav__drawer-link">Contact</a></li>
+      </ul>
+      <div class="nav__drawer-actions" style="margin-top: var(--space-6); display: flex; justify-content: center; padding: 0 var(--space-4);">
+        <a href="#resume" class="btn btn--primary" data-cursor="pointer" style="width: 100%; justify-content: center;">
+          <span>Download CV</span>
+        </a>
+      </div>
+    </div>
+    <div class="nav__overlay" id="navOverlay" aria-hidden="true"></div>
+  </header>
+
+  <main id="main-content" role="main">
+
+    <!-- ═══════════════════════════════════════════════ HERO -->
+    <section id="hero" class="hero section" aria-labelledby="hero-name">
+      <canvas id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero__glow" id="heroGlow" aria-hidden="true"></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+
+      <div class="container hero__inner">
+        <div class="hero__content" id="heroContent">
+          <div class="hero__label reveal-item">
+            <span class="dot dot--available" aria-hidden="true"></span>
+            Full-Stack Developer &amp; Web Security Engineer
+          </div>
+
+          <h1 id="hero-name" class="hero__name reveal-item">
+            <span class="hero__name-line">Arsalan</span>
+            <span class="hero__name-line">Khan <em class="hero__ktk">KTK</em></span>
+          </h1>
+
+          <p class="hero__tagline reveal-item" aria-label="Building Tomorrow, One Commit at a Time">
+            <span class="hero__tagline-accent">Building Tomorrow,</span>
+            One Commit at a Time
+          </p>
+
+          <p class="hero__sub reveal-item">
+            BS Software Engineering &nbsp;·&nbsp; React &amp; Next.js &nbsp;·&nbsp; Node.js &nbsp;·&nbsp; Web Security
+          </p>
+
+          <div class="hero__ctas reveal-item">
+            <a href="#projects" class="btn btn--primary btn--lg magnetic" data-cursor="cta">
+              View My Work
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="public/resume/arsalan-khan-cv.pdf" download class="btn btn--glass btn--lg magnetic" data-cursor="cta">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download Resume
+            </a>
+          </div>
+        </div>
+
+        <!-- Code Block -->
+        <aside class="hero__code-wrap reveal-item" aria-label="Code preview">
+          <div class="code-card" id="codeCard">
+            <div class="code-card__chrome">
+              <div class="code-card__dots" aria-hidden="true">
+                <span class="dot--red"></span>
+                <span class="dot--yellow"></span>
+                <span class="dot--green"></span>
+              </div>
+              <span class="code-card__title">arsalan@portfolio: ~</span>
+            </div>
+            <div class="code-card__body">
+              <pre class="code-card__pre" id="codeOutput" aria-live="polite"></pre>
+              <span class="code-card__cursor" aria-hidden="true">|</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="hero__scroll" id="heroScroll" aria-label="Scroll down">
+        <div class="hero__scroll-line"></div>
+        <span>SCROLL</span>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ ABOUT -->
+    <section id="about" class="section about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about__inner">
+
+          <!-- Left: Photo + Badges -->
+          <div class="about__left">
+            <div class="about__photo-wrap reveal-up">
+              <div class="about__photo" role="img" aria-label="Arsalan Khan profile photo">
+                <img src="public/profile-ak.jpg" alt="Arsalan Khan" class="about__photo-img" width="600" height="700" loading="lazy">
+                <div class="about__photo-scanlines" aria-hidden="true"></div>
+                <div class="about__photo-corner about__photo-corner--tl" aria-hidden="true"></div>
+                <div class="about__photo-corner about__photo-corner--tr" aria-hidden="true"></div>
+                <div class="about__photo-corner about__photo-corner--bl" aria-hidden="true"></div>
+                <div class="about__photo-corner about__photo-corner--br" aria-hidden="true"></div>
+              </div>
+              <div class="about__availability reveal-up">
+                <span class="dot dot--available" aria-hidden="true"></span>
+                Available for Work
+              </div>
+            </div>
+
+            <div class="about__socials reveal-up">
+              <a href="https://github.com/arsalan-khan-dev" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile" data-cursor="pointer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/-arsalan-khan" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile" data-cursor="pointer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="mailto:arsalankhang004@gmail.com" class="social-link" aria-label="Send email" data-cursor="pointer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: Bio -->
+          <div class="about__right">
+            <div class="section__label reveal-up">ABOUT ME</div>
+            <h2 id="about-heading" class="section__heading reveal-up">The Developer<br>Behind the Code</h2>
+
+            <p class="about__bio reveal-up">
+              I build full-stack web applications end to end — interfaces people actually enjoy using, backends that hold up under real traffic, and databases modeled to scale without drama. Recent work includes a production e-commerce build for a real pharmaceutical client in Peshawar, a car rental platform with a full admin dashboard, and a note-taking app with real-time sync.
+            </p>
+            <p class="about__bio reveal-up">
+              Security isn't an afterthought I bolt on — it's part of how I design from the first schema. Auth flows, input validation, and OWASP-aligned practices go in from day one, not after a pentest finds them missing. I also work with AI integration and the occasional IoT project that probably shouldn't exist but does.
+            </p>
+
+            <!-- Stats -->
+            <div class="about__stats reveal-up">
+              <div class="stat-bubble">
+                <span class="stat-bubble__num" data-target="6">0</span>
+                <span class="stat-bubble__label">Projects Shipped</span>
+              </div>
+              <div class="stat-bubble">
+                <span class="stat-bubble__num" data-target="20">0</span>
+                <span class="stat-bubble__label">Technologies</span>
+              </div>
+              <div class="stat-bubble">
+                <span class="stat-bubble__num" data-target="3">0</span>
+                <span class="stat-bubble__label">Years Coding</span>
+              </div>
+            </div>
+
+            <!-- Info Cards -->
+            <div class="about__cards reveal-up">
+              <div class="info-card">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                BS Software Engineering
+              </div>
+              <div class="info-card">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                AI + Cybersecurity Focus
+              </div>
+              <div class="info-card">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                Full-Stack Dev
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline reveal-up" aria-label="Education and milestones">
+          <div class="timeline__tabs" role="tablist">
+            <button class="timeline__tab is-active" role="tab" aria-selected="true" aria-controls="tab-education" id="tab-btn-education">Education</button>
+            <button class="timeline__tab" role="tab" aria-selected="false" aria-controls="tab-milestones" id="tab-btn-milestones">Milestones</button>
+          </div>
+
+          <div class="timeline__content" id="tab-education" role="tabpanel" aria-labelledby="tab-btn-education">
+            <div class="timeline__line" aria-hidden="true"></div>
+            <div class="timeline__entry">
+              <div class="timeline__date"><time datetime="2024">2024 — Present</time></div>
+              <div class="timeline__card">
+                <h3 class="timeline__title">BS Software Engineering</h3>
+                <p class="timeline__org">STMU University, Islamabad</p>
+                <p class="timeline__desc">Coursework spanning algorithms, databases, AI, cybersecurity, and software architecture. Active member of the robotics and coding clubs.</p>
+              </div>
+            </div>
+
+
+
+      <div class="timeline__entry">
+
+  <div class="timeline__date">
+    <time datetime="2022">2022 — 2024</time>
+  </div>
+
+  <div class="timeline__card">
+
+    <h3 class="timeline__title">FSc Pre-Medical</h3>
+
+    <p class="timeline__org">BISE Kohat</p>
+
+    <p class="timeline__desc">
+      Completed Pre Medical education while building strong critical thinking and problem solving skills. This journey inspired me to pursue software engineering and build a career in web development.
+    </p>
+
+  </div>
+
+</div>
+
+          <div class="timeline__content is-hidden" id="tab-milestones" role="tabpanel" aria-labelledby="tab-btn-milestones">
+            <div class="timeline__line" aria-hidden="true"></div>
+            <div class="timeline__entry">
+              <div class="timeline__date"><time datetime="2025">2025</time></div>
+              <div class="timeline__card">
+                <h3 class="timeline__title">Launched Car Hub</h3>
+                <p class="timeline__org">Freelance Project</p>
+                <p class="timeline__desc">Full-stack car rental management system for a Peshawar-based business — admin panel, bookings, availability tracking, complete deployment.</p>
+              </div>
+            </div>
+            <div class="timeline__entry">
+              <div class="timeline__date"><time datetime="2024">2024</time></div>
+              <div class="timeline__card">
+                <h3 class="timeline__title">KB Labs — Medical Diagnostics Platform</h3>
+                <p class="timeline__org">Freelance Project</p>
+                <p class="timeline__desc">Booking platform and admin dashboard for a medical testing lab, covering the full patient-to-staff workflow.</p>
+              </div>
+            </div>
+            <div class="timeline__entry">
+              <div class="timeline__date"><time datetime="2023">2023</time></div>
+              <div class="timeline__card">
+                <h3 class="timeline__title">Rubi — Portfolio Assistant</h3>
+                <p class="timeline__org">Personal Project</p>
+                <p class="timeline__desc">Built a scoring-based chatbot widget to answer visitor questions about skills, education, and availability directly in the portfolio.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ SKILLS -->
+    <section id="skills" class="section skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section__header reveal-up">
+          <div class="section__label">SKILLS</div>
+          <h2 id="skills-heading" class="section__heading">What I Work With</h2>
+        </div>
+
+        <div class="skills__tabs" role="tablist" aria-label="Skill categories">
+          <button class="skills__tab is-active" role="tab" aria-selected="true" data-tab="frontend">Frontend</button>
+          <button class="skills__tab" role="tab" aria-selected="false" data-tab="backend">Backend</button>
+          <button class="skills__tab" role="tab" aria-selected="false" data-tab="database">Databases</button>
+          <button class="skills__tab" role="tab" aria-selected="false" data-tab="security">Security</button>
+          <button class="skills__tab" role="tab" aria-selected="false" data-tab="tools">Tools</button>
+        </div>
+
+        <div class="skills__grid" id="skillsGrid">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ SERVICES -->
+    <section id="services" class="section services" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="section__header reveal-up">
+          <div class="section__label">SERVICES</div>
+          <h2 id="services-heading" class="section__heading">What I Can Build<br>for You</h2>
+        </div>
+
+        <div class="services__grid">
+          <article class="service-card reveal-up" data-cursor="pointer">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <h3 class="service-card__title">Full-Stack Web Dev</h3>
+            <p class="service-card__desc">End-to-end applications from database to deployment. React, Next.js, Node.js — built to scale and easy to maintain.</p>
+            <div class="service-card__tags">
+              <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">Express</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal-up" data-cursor="pointer">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h3 class="service-card__title">UI/UX Design</h3>
+            <p class="service-card__desc">Interfaces people enjoy using. Design systems, component libraries, accessible by default — built for handoff.</p>
+            <div class="service-card__tags">
+              <span class="tag">Figma</span><span class="tag">Design Systems</span><span class="tag">WCAG</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal-up" data-cursor="pointer">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h3 class="service-card__title">Database Architecture</h3>
+            <p class="service-card__desc">Schema design that doesn't come back to bite you. Normalized tables, indexes, migrations, query optimization.</p>
+            <div class="service-card__tags">
+              <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal-up" data-cursor="pointer">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3 class="service-card__title">Authentication &amp; Access Control</h3>
+            <p class="service-card__desc">JWT and OAuth flows, secure password handling, role-based authorization — done right from the first commit.</p>
+            <div class="service-card__tags">
+              <span class="tag">JWT</span><span class="tag">OAuth</span><span class="tag">RBAC</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal-up" data-cursor="pointer">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+            </div>
+            <h3 class="service-card__title">Secure API Design</h3>
+            <p class="service-card__desc">Rate limiting, input validation, security headers, and REST/GraphQL APIs built to resist the common attack surface.</p>
+            <div class="service-card__tags">
+              <span class="tag">REST</span><span class="tag">GraphQL</span><span class="tag">Rate Limiting</span>
+            </div>
+          </article>
+
+          <article class="service-card reveal-up" data-cursor="pointer">
+            <div class="service-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="service-card__title">Security Hardening</h3>
+            <p class="service-card__desc">XSS and CSRF prevention, SQL injection defense, secure cookie config, and OWASP-aligned code review for existing apps.</p>
+            <div class="service-card__tags">
+              <span class="tag">OWASP</span><span class="tag">Code Review</span><span class="tag">XSS/CSRF</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ PROJECTS -->
+    <section id="projects" class="section projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section__header reveal-up">
+          <div class="section__label">PROJECTS</div>
+          <h2 id="projects-heading" class="section__heading">Things I've Built</h2>
+        </div>
+
+        <div class="projects__filter" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn is-active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Full-Stack</button>
+          <button class="filter-btn" data-filter="ai">Chatbot / AI</button>
+          <button class="filter-btn" data-filter="ui">UI/UX</button>
+        </div>
+
+        <div class="projects__grid" id="projectsGrid">
+
+          <article class="project-card reveal-up" data-category="web" data-cursor="pointer" tabindex="0" role="button" aria-label="View KB Labs project details">
+            <div class="project-card__img">
+              <img src="images/projects/kb-labs-1.jpg" alt="KB Labs medical laboratory homepage" class="project-card__thumb" loading="lazy" width="800" height="450">
+              <div class="project-card__overlay">
+                <span class="project-card__link project-card__link--pending" aria-label="GitHub link not yet added" title="GitHub link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </span>
+                <span class="project-card__link project-card__link--pending" aria-label="Live demo link not yet added" title="Live demo link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <span class="tag tag--accent">Full-Stack Web Dev</span>
+              <h3 class="project-card__title">KB Labs — Medical Diagnostics</h3>
+              <p class="project-card__desc">A full-stack booking and results platform for a medical testing lab: test catalog, package management, bookings, and a staff-facing admin dashboard.</p>
+              <div class="project-card__tech">
+                <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MySQL</span><span class="tag">Admin Panel</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-category="web" data-cursor="pointer" tabindex="0" role="button" aria-label="View Car Hub project details">
+            <div class="project-card__img">
+              <img src="images/projects/car-hub-1.jpg" alt="Car Hub rental admin dashboard" class="project-card__thumb" loading="lazy" width="800" height="450">
+              <div class="project-card__overlay">
+                <span class="project-card__link project-card__link--pending" aria-label="GitHub link not yet added" title="GitHub link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </span>
+                <span class="project-card__link project-card__link--pending" aria-label="Live demo link not yet added" title="Live demo link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <span class="tag tag--accent">Full-Stack Web Dev</span>
+              <h3 class="project-card__title">Car Hub — Rental Management System</h3>
+              <p class="project-card__desc">A car rental platform built for a real Peshawar-based business, with a complete admin panel: user management, car availability, bookings, and discounts.</p>
+              <div class="project-card__tech">
+                <span class="tag">Admin Panel</span><span class="tag">MySQL</span><span class="tag">Auth</span><span class="tag">CRUD</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-category="web" data-cursor="pointer" tabindex="0" role="button" aria-label="View Nova Heaven project details">
+            <div class="project-card__img">
+              <img src="images/projects/nova-heaven-1.jpg" alt="Nova Heaven e-commerce storefront" class="project-card__thumb" loading="lazy" width="800" height="450">
+              <div class="project-card__overlay">
+                <span class="project-card__link project-card__link--pending" aria-label="GitHub link not yet added" title="GitHub link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </span>
+                <span class="project-card__link project-card__link--pending" aria-label="Live demo link not yet added" title="Live demo link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <span class="tag tag--accent">Full-Stack Web Dev</span>
+              <h3 class="project-card__title">Nova Heaven — E-Commerce Store</h3>
+              <p class="project-card__desc">A fashion and footwear storefront with product categories, cart, wishlist, and account flows — built for a clean, fast shopping experience.</p>
+              <div class="project-card__tech">
+                <span class="tag">React</span><span class="tag">Cart / Checkout</span><span class="tag">Responsive</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-category="web" data-cursor="pointer" tabindex="0" role="button" aria-label="View Khan Travel Agency project details">
+            <div class="project-card__img">
+              <img src="images/projects/khan-travel-1.jpg" alt="Khan Travel Agency flight booking homepage" class="project-card__thumb" loading="lazy" width="800" height="450">
+              <div class="project-card__overlay">
+                <span class="project-card__link project-card__link--pending" aria-label="GitHub link not yet added" title="GitHub link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </span>
+                <span class="project-card__link project-card__link--pending" aria-label="Live demo link not yet added" title="Live demo link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <span class="tag tag--accent">Full-Stack Web Dev</span>
+              <h3 class="project-card__title">Khan Travel Agency</h3>
+              <p class="project-card__desc">A flight booking platform with search by route and date, passenger and class selection, and an admin dashboard for bookings, flights, and messages.</p>
+              <div class="project-card__tech">
+                <span class="tag">Dashboard</span><span class="tag">Booking Flow</span><span class="tag">Admin</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-category="web" data-cursor="pointer" tabindex="0" role="button" aria-label="View Excellence Academy project details">
+            <div class="project-card__img">
+              <img src="images/projects/excellence-academy-1.jpg" alt="Excellence Academy school website homepage" class="project-card__thumb" loading="lazy" width="800" height="450">
+              <div class="project-card__overlay">
+                <span class="project-card__link project-card__link--pending" aria-label="GitHub link not yet added" title="GitHub link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </span>
+                <span class="project-card__link project-card__link--pending" aria-label="Live demo link not yet added" title="Live demo link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <span class="tag tag--accent">Full-Stack </span>
+              <h3 class="project-card__title">Excellence Academy — School Website</h3>
+              <p class="project-card__desc">A full informational site for a school: admissions, academics, gallery, and events, organized around clear navigation for parents and prospective students.</p>
+              <div class="project-card__tech">
+                <span class="tag">Multi-Page</span><span class="tag">Responsive</span><span class="tag">Content-Heavy</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card reveal-up" data-category="ai" data-cursor="pointer" tabindex="0" role="button" aria-label="View Rubi Assistant project details">
+            <div class="project-card__img">
+              <img src="images/projects/rubi-assistant-1.jpg" alt="Rubi chatbot assistant widget" class="project-card__thumb" loading="lazy" width="800" height="450">
+              <div class="project-card__overlay">
+                <span class="project-card__link project-card__link--pending" aria-label="GitHub link not yet added" title="GitHub link not yet added">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <span class="tag tag--accent">Chatbot / AI</span>
+              <h3 class="project-card__title">Rubi — Portfolio Assistant</h3>
+              <p class="project-card__desc">A weighted-scoring chatbot widget embedded in this very portfolio, built to answer visitor questions about skills, education, and projects with context-aware replies.</p>
+              <div class="project-card__tech">
+                <span class="tag">JavaScript</span><span class="tag">NLP Scoring</span><span class="tag">Widget UI</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ EXPERIENCE -->
+    <section id="experience" class="section experience" aria-labelledby="exp-heading">
+      <div class="container">
+        <div class="section__header reveal-up">
+          <div class="section__label">EXPERIENCE</div>
+          <h2 id="exp-heading" class="section__heading">Where I've<br>Shipped Work</h2>
+        </div>
+
+        <div class="exp-timeline">
+          <div class="exp-timeline__line" aria-hidden="true"></div>
+
+          <div class="exp-entry reveal-up exp-entry--left">
+            <div class="exp-entry__meta">
+              <time class="exp-entry__date">2022 — Present</time>
+              <span class="exp-entry__company">Independent</span>
+            </div>
+            <div class="exp-entry__card">
+              <div class="exp-entry__role-row">
+                <div class="exp-entry__avatar">FR</div>
+                <div>
+                  <h3 class="exp-entry__role">Freelance Web Developer</h3>
+                  <span class="exp-entry__type">Self-Employed</span>
+                </div>
+              </div>
+              <ul class="exp-entry__bullets">
+                <li>Delivered full-stack web apps and admin dashboards for real clients, including Car Hub and KB Labs</li>
+                <li>Built Car Hub — a complete car rental management system deployed for a Peshawar-based business</li>
+                <li>Handled everything from requirements gathering to deployment and maintenance</li>
+              </ul>
+              <div class="exp-entry__tech">
+                <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="exp-entry reveal-up exp-entry--right">
+            <div class="exp-entry__meta">
+              <time class="exp-entry__date">2023 — 2024</time>
+              <span class="exp-entry__company">STMU University</span>
+            </div>
+            <div class="exp-entry__card">
+              <div class="exp-entry__role-row">
+                <div class="exp-entry__avatar">UNI</div>
+                <div>
+                  <h3 class="exp-entry__role">Academic Project Lead</h3>
+                  <span class="exp-entry__type">University</span>
+                </div>
+              </div>
+              <ul class="exp-entry__bullets">
+                <li>Led team projects covering database design, web development, and security fundamentals</li>
+                <li>Built Rubi, a scoring-based chatbot assistant, as a coursework deliverable</li>
+                <li>Coursework included applied cybersecurity and secure coding practices</li>
+              </ul>
+              <div class="exp-entry__tech">
+                <span class="tag">JavaScript</span><span class="tag">Security</span><span class="tag">Team Lead</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════ RESUME -->
+    <section id="resume" class="section resume" aria-labelledby="resume-heading">
+      <div class="container">
+        <div class="resume__card reveal-up">
+          <div class="resume__content">
+            <h2 id="resume-heading" class="resume__title">Professional Resume</h2>
+            <p class="resume__summary">
+              A comprehensive overview of my experience, technical skills, and educational background. Designed for quick parsing by both humans and ATS systems.
+            </p>
+            <div class="resume__stats">
+              <div class="resume__stat">
+                <span class="resume__stat-num">3+</span>
+                <span class="resume__stat-label">Years Exp.</span>
+              </div>
+              <div class="resume__stat">
+                <span class="resume__stat-num">6+</span>
+                <span class="resume__stat-label">Projects</span>
+              </div>
+            </div>
+            
+            <button class="btn btn--primary btn--download" id="downloadResumeBtn" aria-label="Download Resume">
+              <span class="btn__text">Download PDF</span>
+              <svg class="btn__icon btn__icon--base" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <svg class="btn__icon btn__icon--spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+              <svg class="btn__icon btn__icon--check" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </button>
+          </div>
+          <div class="resume__visual" aria-hidden="true">
+            <div class="resume__document">
+              <div class="resume__line resume__line--title"></div>
+              <div class="resume__line"></div>
+              <div class="resume__line"></div>
+              <div class="resume__line resume__line--short"></div>
+              <div class="resume__badge"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ═══════════════════════════════════════════════ PROJECT MODAL -->
+    <div id="projectModal" class="project-modal" role="dialog" tabindex="-1" aria-modal="true" aria-label="Project details modal">
+      <button class="project-modal__close" id="projectModalClose" aria-label="Close project modal">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <button class="project-modal__nav project-modal__prev" id="projectModalPrev" aria-label="Previous project">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+
+      <div class="project-modal__content">
+        <!-- Hero Image -->
+        <div class="project-modal__hero" id="projectModalHero">
+          <img class="project-modal__img" id="projectModalImg" src="" alt="" loading="lazy">
+          <div class="project-modal__placeholder" id="projectModalPlaceholder"></div>
+        </div>
+
+        <!-- Body Content -->
+        <div class="project-modal__body">
+          <div class="project-modal__header">
+            <span class="tag tag--accent" id="projectModalCategory"></span>
+            <h2 class="project-modal__title" id="projectModalTitle"></h2>
+            <p class="project-modal__short-desc" id="projectModalShortDesc"></p>
+          </div>
+
+          <!-- Long Description -->
+          <div class="project-modal__section">
+            <h3 class="project-modal__section-title">Overview</h3>
+            <p class="project-modal__long-desc" id="projectModalLongDesc"></p>
+          </div>
+
+          <!-- Problem/Solution/Outcome -->
+          <div class="project-modal__pso">
+            <div class="project-modal__pso-item">
+              <h4 class="project-modal__pso-title">🎯 Problem</h4>
+              <p class="project-modal__pso-desc" id="projectModalProblem"></p>
+            </div>
+            <div class="project-modal__pso-item">
+              <h4 class="project-modal__pso-title">💡 Solution</h4>
+              <p class="project-modal__pso-desc" id="projectModalSolution"></p>
+            </div>
+            <div class="project-modal__pso-item">
+              <h4 class="project-modal__pso-title">📈 Outcome</h4>
+              <p class="project-modal__pso-desc" id="projectModalOutcome"></p>
+            </div>
+          </div>
+
+          <!-- Tech Stack -->
+          <div class="project-modal__section">
+            <h3 class="project-modal__section-title">Tech Stack</h3>
+            <div class="project-modal__tech" id="projectModalTech"></div>
+          </div>
+
+          <!-- Links -->
+          <div class="project-modal__links" id="projectModalLinks"></div>
+
+          <!-- Navigation Counter -->
+          <div class="project-modal__counter" id="projectModalCounter">1 / 6</div>
+        </div>
+      </div>
+
+      <button class="project-modal__nav project-modal__next" id="projectModalNext" aria-label="Next project">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════ CONTACT -->
+    <section id="contact" class="section contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section__header reveal-up">
+          <div class="section__label">CONTACT</div>
+          <h2 id="contact-heading" class="section__heading">Let's Build<br>Something</h2>
+        </div>
+
+        <div class="contact__inner">
+          <!-- Form -->
+          <div class="contact__form-wrap reveal-up">
+            <form class="contact__form" id="contactForm" novalidate aria-label="Contact form">
+              <div class="form-field">
+                <label for="fname" class="form-label">Name</label>
+                <input type="text" id="fname" name="name" class="form-input" placeholder="Your name" autocomplete="name" required aria-required="true">
+                <span class="form-error" id="fname-error" role="alert" aria-live="assertive"></span>
+              </div>
+              <div class="form-field">
+                <label for="femail" class="form-label">Email</label>
+                <input type="email" id="femail" name="email" class="form-input" placeholder="your@email.com" autocomplete="email" required aria-required="true">
+                <span class="form-error" id="femail-error" role="alert" aria-live="assertive"></span>
+              </div>
+              <div class="form-field">
+                <label for="fsubject" class="form-label">Subject</label>
+                <input type="text" id="fsubject" name="subject" class="form-input" placeholder="What's this about?">
+              </div>
+              <div class="form-field">
+                <label for="fmessage" class="form-label">Message</label>
+                <textarea id="fmessage" name="message" class="form-input form-textarea" rows="5" placeholder="Tell me about your project..." required aria-required="true"></textarea>
+                <span class="form-error" id="fmessage-error" role="alert" aria-live="assertive"></span>
+              </div>
+              <button type="submit" class="btn btn--primary btn--lg" id="formSubmit" data-cursor="cta">
+                <span class="btn__text">Send Message</span>
+                <svg class="btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+              <div class="form-success" id="formSuccess" role="alert" aria-live="polite"></div>
+            </form>
+          </div>
+
+          <!-- Info -->
+          <div class="contact__info reveal-up">
+            <div class="contact__available">
+              <span class="dot dot--available" aria-hidden="true"></span>
+              <div>
+                <strong>Currently Available</strong>
+                <span>Open to projects and opportunities</span>
+              </div>
+            </div>
+
+            <div class="contact__cards">
+              <a href="mailto:arsalankhang004@gmail.com" class="contact-card" data-cursor="pointer">
+                <div class="contact-card__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <span class="contact-card__label">Email</span>
+                  <span class="contact-card__value">arsalankhang004@gmail.com</span>
+                </div>
+              </a>
+
+              <a href="https://github.com/arsalan-khan-dev" target="_blank" rel="noopener noreferrer" class="contact-card" data-cursor="pointer">
+                <div class="contact-card__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+                </div>
+                <div>
+                  <span class="contact-card__label">GitHub</span>
+                  <span class="contact-card__value">arsalan-khan-dev</span>
+                </div>
+              </a>
+
+              <a href="https://linkedin.com/in/-arsalan-khan" target="_blank" rel="noopener noreferrer" class="contact-card" data-cursor="pointer">
+                <div class="contact-card__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                </div>
+                <div>
+                  <span class="contact-card__label">LinkedIn</span>
+                  <span class="contact-card__value">-arsalan-khan</span>
+                </div>
+              </a>
+
+              <div class="contact-card contact-card--static">
+                <div class="contact-card__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div>
+                  <span class="contact-card__label">Location</span>
+                  <span class="contact-card__value">Rawalpindi, Pakistan · Remote</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════ FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="footer__logo">AK</span>
+        <p>Full-Stack Developer based in Rawalpindi. Building things that work.</p>
+        <div class="footer__socials">
+          <a href="https://github.com/arsalan-khan-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/-arsalan-khan" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="mailto:arsalankhang004@gmail.com" aria-label="Email" class="social-link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__links">
+        <h4>Navigation</h4>
+        <ul role="list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__links">
+        <h4>Services</h4>
+        <ul role="list">
+          <li><a href="#services">Full-Stack Dev</a></li>
+          <li><a href="#services">UI/UX Design</a></li>
+          <li><a href="#services">AI Integration</a></li>
+          <li><a href="#services">Cybersecurity</a></li>
+          <li><a href="#services">IoT Solutions</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__newsletter">
+        <h4>Newsletter</h4>
+        <p style="color: var(--color-text-muted); font-size: var(--text-small); margin-bottom: var(--space-3);">Subscribe to get my latest articles and insights on AI, web development, and cybersecurity.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault();">
+          <input type="email" placeholder="Email address" required aria-label="Email for newsletter">
+          <button type="submit" class="btn btn--primary" aria-label="Subscribe to newsletter">
+            <span>Subscribe</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <span>© 2025 Arsalan Khan. All rights reserved.</span>
+        <span>Designed &amp; Built by Arsalan Khan</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-bottom-nav" aria-label="Mobile Bottom Navigation">
+    <a href="#hero" class="nav__link" data-cursor="pointer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Home</span>
+    </a>
+    <a href="#projects" class="nav__link" data-cursor="pointer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      <span>Work</span>
+    </a>
+    <a href="#skills" class="nav__link" data-cursor="pointer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <span>Skills</span>
+    </a>
+    <a href="#contact" class="nav__link" data-cursor="pointer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" data-cursor="pointer">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- CDN Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js" defer></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
