@@ -574,7 +574,7 @@ const HeroScene = (() => {
         const oy = originPositions[i3 + 1];
         const dist = Math.sqrt((ox - cx) ** 2 + (oy - cy) ** 2);
 
-        if (dist < thresh) {
+        if (dist > 0 && dist < thresh) {
           const force = (1 - dist / thresh) * 18;
           const nx = ox + ((ox - cx) / dist) * force;
           const ny = oy + ((oy - cy) / dist) * force;
@@ -1739,6 +1739,56 @@ const PageTransition = (() => {
   };
 
   const init = () => {
+    if (document.body.classList.contains('articles-page')) {
+      const nav = document.querySelector('.nav');
+      if (nav && !document.getElementById('articleNavBurger')) {
+        const burger = document.createElement('button');
+        burger.className = 'nav__burger';
+        burger.id = 'articleNavBurger';
+        burger.setAttribute('aria-label', 'Open navigation menu');
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-controls', 'articleNavDrawer');
+        burger.innerHTML = '<span></span><span></span><span></span>';
+
+        const drawer = document.createElement('div');
+        drawer.className = 'nav__drawer';
+        drawer.id = 'articleNavDrawer';
+        drawer.setAttribute('role', 'dialog');
+        drawer.setAttribute('aria-label', 'Article navigation');
+        drawer.setAttribute('aria-modal', 'true');
+        drawer.innerHTML = '<ul role="list"><li><a href="../index.html#hero" class="nav__drawer-link">Home</a></li><li><a href="../index.html#about" class="nav__drawer-link">About</a></li><li><a href="../index.html#projects" class="nav__drawer-link">Projects</a></li><li><a href="../index.html#contact" class="nav__drawer-link">Contact</a></li><li><a href="../articles.html" class="nav__drawer-link">Articles</a></li></ul>';
+
+        const overlay = document.createElement('div');
+        overlay.className = 'nav__overlay';
+        overlay.id = 'articleNavOverlay';
+        overlay.setAttribute('aria-hidden', 'true');
+        nav.appendChild(burger);
+        document.body.append(drawer, overlay);
+
+        const close = () => {
+          drawer.classList.remove('is-open');
+          overlay.classList.remove('is-visible');
+          burger.classList.remove('is-open');
+          burger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        };
+        burger.addEventListener('click', () => {
+          const open = !drawer.classList.contains('is-open');
+          drawer.classList.toggle('is-open', open);
+          overlay.classList.toggle('is-visible', open);
+          burger.classList.toggle('is-open', open);
+          burger.setAttribute('aria-expanded', String(open));
+          document.body.style.overflow = open ? 'hidden' : '';
+          if (open) drawer.querySelector('a')?.focus();
+        });
+        overlay.addEventListener('click', close);
+        drawer.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
+        document.addEventListener('keydown', event => {
+          if (event.key === 'Escape') close();
+        });
+      }
+    }
+
     const overlay = document.createElement('div');
     overlay.className = 'page-transition';
     overlay.setAttribute('aria-hidden', 'true');
