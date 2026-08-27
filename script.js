@@ -81,6 +81,12 @@ const ThemeManager = (() => {
   };
 
   const init = () => {
+    if (toggle && document.body.classList.contains('articles-page')) {
+      toggle.innerHTML = `
+        <svg class="theme-icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="theme-icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+    }
+
     let saved = 'dark';
     try { 
       const stored = localStorage.getItem(STORAGE_KEY);
@@ -202,8 +208,8 @@ const Loader = (() => {
    04. CURSOR
    ───────────────────────────────────────────────────────────────────────── */
 const Cursor = (() => {
-  const dot = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
+  let dot = document.getElementById('cursorDot');
+  let ring = document.getElementById('cursorRing');
   const wrapper = document.documentElement;
 
   let mx = 0, my = 0; // Mouse target
@@ -261,6 +267,24 @@ const Cursor = (() => {
     if (Utils.prefersTouch()) return; // Skip on touch devices
 
     try {
+      if (!dot) {
+        dot = document.createElement('div');
+        dot.className = 'cursor__dot';
+        dot.id = 'cursorDot';
+        dot.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(dot);
+      }
+      if (!ring) {
+        ring = document.createElement('div');
+        ring.className = 'cursor__ring';
+        ring.id = 'cursorRing';
+        ring.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(ring);
+      }
+      if (document.body.classList.contains('articles-page')) {
+        document.querySelectorAll('a, button').forEach(el => el.dataset.cursor = 'pointer');
+      }
+
       onMouseMoveHandler = Utils.throttle((e) => onMouseMove(e), 10);
       onMouseEnterHandler = onMouseEnter;
       onMouseLeaveHandler = onMouseLeave;
@@ -371,13 +395,15 @@ const NavManager = (() => {
 
     updateActiveLink();
 
-    // Update document title
-    const activeId = getActiveSection();
-    if (activeId) {
-      const label = activeId.charAt(0).toUpperCase() + activeId.slice(1);
-      document.title = `Arsalan Khan — ${label}`;
-    } else {
-      document.title = 'Arsalan Khan — Full-Stack Developer & AI Engineer';
+    // Keep standalone document titles intact.
+    if (sections.length) {
+      const activeId = getActiveSection();
+      if (activeId) {
+        const label = activeId.charAt(0).toUpperCase() + activeId.slice(1);
+        document.title = `Arsalan Khan — ${label}`;
+      } else {
+        document.title = 'Arsalan Khan — Full-Stack Developer & AI Engineer';
+      }
     }
   }, 50);
 
@@ -1702,6 +1728,38 @@ const SwipeGestures = (() => {
 })();
 
 
+/* ─────────────────────────────────────────────────────────────────────────
+   18. PAGE TRANSITIONS
+   ───────────────────────────────────────────────────────────────────────── */
+const PageTransition = (() => {
+  const isInternalDocument = (link) => {
+    if (!link || link.target === '_blank' || link.hasAttribute('download')) return false;
+    if (link.origin !== window.location.origin) return false;
+    return link.pathname.endsWith('.html');
+  };
+
+  const init = () => {
+    const overlay = document.createElement('div');
+    overlay.className = 'page-transition';
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(overlay);
+
+    document.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const link = event.target.closest('a');
+      if (!isInternalDocument(link)) return;
+
+      event.preventDefault();
+      document.body.classList.add('is-leaving');
+      overlay.classList.add('is-leaving');
+      window.setTimeout(() => { window.location.href = link.href; }, 480);
+    });
+  };
+
+  return { init };
+})();
+
+
 document.addEventListener('DOMContentLoaded', () => {
   // Critical — runs first
   try {
@@ -1717,6 +1775,7 @@ document.addEventListener('DOMContentLoaded', () => {
     FormManager.init();
     BackToTop.init();
     ServiceCards.init();
+    PageTransition.init();
   } catch (err) {
     console.error('Error during critical initialization:', err);
   }
