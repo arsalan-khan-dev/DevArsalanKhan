@@ -113,17 +113,15 @@ arsalan-portfolio/
 
 | Step | Action |
 |---|---|
-| 1 | Create a free account at [formspree.io](https://formspree.io) |
-| 2 | Copy your form ID (e.g. `xpwzdbkn`) |
-| 3 | Open `script.js` and locate `FORMSPREE_ID = 'YOUR_FORMSPREE_ID'` |
-| 4 | Replace the placeholder with your actual form ID |
+| Endpoint | `https://formspree.io/f/mnpqagzj` |
+| Integration | Vanilla JavaScript `fetch()` submission in `script.js` |
 
 ### Resume Download
 
 Place your CV at:
 
 ```
-assets/resume/arsalan-khan-cv.pdf
+public/resume/arsalan-khan-cv.pdf
 ```
 
 The download button picks it up automatically — no code changes required.
@@ -164,9 +162,9 @@ Full compliance against the project's Product Requirements Document.
 <tr><td>✔</td><td>Code block typewriter — Python <code>ArsalanKhan</code> class</td></tr>
 <tr><td>✔</td><td>Animated skills — circular progress bars across 5 categories</td></tr>
 <tr><td>✔</td><td>6 service cards with border-trace hover effect</td></tr>
-<tr><td>✔</td><td>6 project cards with filtering + fullscreen modal (PSO structure)</td></tr>
+<tr><td>✔</td><td>8 project cards with filtering + fullscreen modal (PSO structure)</td></tr>
 <tr><td>✔</td><td>Alternating experience timeline</td></tr>
-<tr><td>✔</td><td>6 certificate cards</td></tr>
+<tr><td>—</td><td>Certifications section removed</td></tr>
 <tr><td>✔</td><td>Masonry gallery with lightbox</td></tr>
 <tr><td>✔</td><td>Resume download with loading state</td></tr>
 <tr><td>✔</td><td>Contact form with live validation</td></tr>
@@ -215,7 +213,7 @@ No environment variables or build commands are required — point your host at t
 
 [![Email](https://img.shields.io/badge/Email-arsalankhang004%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:arsalankhang004@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-arsalan--khan--dev-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arsalan-khan-dev)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-arsalan--khan-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/-arsalan-khan)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-arsalan--khan-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/-arsalan-khan/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Visit_Site-000000?style=for-the-badge&logo=googlechrome&logoColor=white)](https://arsalan-khan-dev.github.io/portfolio-website/)
 
 </div>

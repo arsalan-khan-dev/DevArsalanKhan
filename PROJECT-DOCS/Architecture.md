@@ -13,7 +13,7 @@
 /index.html          — single page, all sections
 /style.css           — full design system (tokens in :root, light-theme override)
 /script.js           — all active behavior: nav, hero canvas, skills, projects modal, form, theme toggle
-/images/projects/    — 12 real screenshots (2 per project x 6 projects), compressed
+/images/projects/    — project screenshots for 8 portfolio projects, compressed
 /public/profile-ak.jpg      — real profile photo, compressed
 /public/og-image.jpg         — generated placeholder OG image (1200x630) — swap for a designed one later
 /public/resume/               — empty, needs arsalan-khan-cv.pdf dropped in (see README.txt inside)
@@ -26,5 +26,5 @@ The zip shipped a literal folder named `{fonts/rockybilly,images/{profile,projec
 
 ## Data flow
 - Skills: static HTML grid, grouped by category (Frontend/Backend/Databases/APIs/Security/Tools)
-- Projects: static HTML cards + a JS object (`projectDetails` in script.js) driving the "view details" modal — kept as the single source of truth for modal copy so there's no drift between card and modal
+- Projects: 8 static HTML cards + a JS object (`projects` in script.js) driving the "view details" modal — kept in matching order so card clicks open the correct project details
 - Contact form: native `fetch()` POST to Formspree endpoint, no third-party JS SDK

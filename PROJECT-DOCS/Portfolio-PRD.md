@@ -10,7 +10,7 @@ Ship v2.0 of Arsalan Khan's existing portfolio: same identity, same layout, same
 - No invented stats, testimonials, or achievements
 
 ## Source of truth for content
-- 6 real projects, verified against images/ and github.com/arsalan-khan-dev (18 public repos, confirmed: bofalgan-pharmaceuticals)
+- 8 real projects, represented by the project cards and images/ assets
 - Real profile photo: public/profile-ak.jpg
 - Real project screenshots: images/pic1-*.jpg (Nova Heaven / "Car Hub" retail UI) through pic6-*.jpg
 - Certs are real (W3Schools/Coursera-style, verifiable) — but removed per client instruction (redundant, not needed for target roles)
@@ -22,7 +22,7 @@ Ship v2.0 of Arsalan Khan's existing portfolio: same identity, same layout, same
 ## Priority order (from audit)
 1. Wire real images (profile, project screenshots) — no more initials/placeholders
 2. Fix resume path + contact form (Formspree) + explain both need a real ID/PDF from the client
-3. Fix 20 vs 6 project stat mismatch
+3. Keep the 8-project count consistent across the portfolio
 4. Real/placeholder-marked links, never bare `#`
 5. Delete dead code (main.js, projects.js, chatbot.js) — done
 6. De-risk fabricated project outcomes

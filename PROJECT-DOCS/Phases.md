@@ -2,7 +2,7 @@
 
 1. Audit read + asset inventory (done)
 2. Delete dead code + broken asset shell (done)
-3. Wire real images: profile photo, 6 project screenshots
+3. Wire real images: profile photo and project screenshots
 4. Fix stat mismatch, resume path, contact form wiring, og:image meta
 5. Rebuild skills section (modern web + security scope)
 6. Remove certifications section

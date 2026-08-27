@@ -1542,24 +1542,27 @@ header[role="banner"] {
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
-  padding-left: var(--space-8);
+  padding-left: 0;
+  max-width: 960px;
+  margin-inline: auto;
 }
 .timeline__content.is-hidden { display: none; }
 
 .timeline__line {
   position: absolute;
-  left: 0;
+  left: 50%;
   top: 8px;
   width: 1px;
   bottom: 8px;
   background: linear-gradient(to bottom, var(--color-accent), rgba(137,233,0,0.2), transparent);
+  transform: translateX(-50%);
   transform-origin: top;
 }
 
 .timeline__entry {
   position: relative;
   display: grid;
-  grid-template-columns: 140px 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-6);
   align-items: start;
 }
@@ -1568,8 +1571,7 @@ header[role="banner"] {
 .timeline__entry::before {
   content: '';
   position: absolute;
-  left: -var(--space-8);
-  left: calc(-1 * var(--space-8) + 0.5px);
+  left: 50%;
   top: 16px;
   width: 9px;
   height: 9px;
@@ -1588,6 +1590,31 @@ header[role="banner"] {
   font-weight: 500;
   padding-top: 14px;
   letter-spacing: 0.02em;
+}
+
+.timeline__entry:nth-child(odd) .timeline__date {
+  grid-column: 2;
+  grid-row: 1;
+  padding-left: var(--space-6);
+  text-align: left;
+}
+
+.timeline__entry:nth-child(odd) .timeline__card {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
+}
+
+.timeline__entry:nth-child(even) .timeline__date {
+  grid-column: 1;
+  grid-row: 1;
+  padding-right: var(--space-6);
+  text-align: right;
+}
+
+.timeline__entry:nth-child(even) .timeline__card {
+  grid-column: 2;
+  grid-row: 1;
 }
 
 .timeline__card {
@@ -1624,6 +1651,15 @@ header[role="banner"] {
   line-height: 1.6;
   max-width: 55ch;
 }
+
+.timeline__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.timeline__entry:nth-child(odd) .timeline__tags { justify-content: flex-end; }
 
 
 /* ─────────────────────────────────────────────────────────────────────────
@@ -2837,6 +2873,18 @@ header[role="banner"] {
   }
   .timeline__date { padding-top: 0; }
   .timeline__content { padding-left: var(--space-5); }
+  .timeline__line { left: 0; transform: none; }
+  .timeline__entry:nth-child(odd) .timeline__date,
+  .timeline__entry:nth-child(even) .timeline__date,
+  .timeline__entry:nth-child(odd) .timeline__card,
+  .timeline__entry:nth-child(even) .timeline__card {
+    grid-column: 1;
+    grid-row: auto;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+  }
+  .timeline__entry:nth-child(odd) .timeline__tags { justify-content: flex-start; }
 
   /* Skills */
   .skills__tabs {

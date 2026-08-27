@@ -955,8 +955,8 @@ const ProjectModalManager = (() => {
     {
       id: 'brightbyte-dental-system',
       title: 'BrightByte Dental System',
-      category: 'Full-Stack Web Dev',
-      categoryTag: 'web',
+      category: 'Static Website',
+      categoryTag: 'static',
       image: 'images/projects/brightbyte-dental-1.jpg',
       shortDesc: 'A modern dental clinic management system built with clean UI, appointment management, patient records, billing, authentication, and scalable architecture.',
       longDesc: 'BrightByte Dental System is a modern dental clinic management system designed to provide a clean digital experience for managing dental clinic operations.',
@@ -972,8 +972,8 @@ const ProjectModalManager = (() => {
     {
       id: 'quick-turn-auto-keys',
       title: 'Quick Turn Auto Keys',
-      category: 'Full-Stack Web Dev',
-      categoryTag: 'web',
+      category: 'Static Website',
+      categoryTag: 'static',
       image: 'images/projects/quick-turn-auto-keys-1.jpg',
       shortDesc: 'A professional 37-page responsive static website for a 24/7 mobile automotive locksmith service, covering car key replacement, programming, repairs, lockouts, ignition services, service areas, vehicle brands, FAQs, blog content, and customer enquiries.',
       longDesc: 'A professional 37-page static website created for Quick Turn Auto Keys, a 24/7 mobile automotive locksmith service serving London and surrounding areas.',
@@ -1039,8 +1039,8 @@ const ProjectModalManager = (() => {
     {
       id: 'excellence-academy',
       title: 'Excellence Academy — School Website',
-      category: 'UI/UX',
-      categoryTag: 'ui',
+      category: 'Static Website',
+      categoryTag: 'static',
       image: 'images/projects/excellence-academy-1.jpg',
       shortDesc: 'A full informational site for a school: admissions, academics, gallery, and events, organized around clear navigation for parents and prospective students.',
       longDesc: 'A multi-page site for a school covering admissions, academics, a photo gallery, and events — built so parents and prospective students can find what they need without hunting through menus.',
@@ -1343,22 +1343,10 @@ const FormManager = (() => {
 
     try {
       // ──────────────────────────────────────────────────────────────────────
-      // CONTACT FORM SETUP — REQUIRED BEFORE THIS FORM CAN SEND REAL MESSAGES:
-      // 1. Create a free form at https://formspree.io (~30 seconds)
-      // 2. Replace 'TODO_FORMSPREE_ID' below with your real form ID
-      // Example: const FORMSPREE_ID = 'xpwzdbkn';
-      // Until you do, this form will NOT fake success — it tells the visitor
-      // honestly that the form isn't live yet, and gives your email as a
-      // fallback, rather than silently losing their message.
+      // CONTACT FORM SUBMISSION:
+      // Messages are submitted to the connected Formspree endpoint.
       // ──────────────────────────────────────────────────────────────────────
-      const FORMSPREE_ID = 'TODO_FORMSPREE_ID';
-
-      if (FORMSPREE_ID === 'TODO_FORMSPREE_ID') {
-        setLoading(false);
-        showError('femail', 'This form isn\'t connected yet — please email arsalankhang004@gmail.com directly.');
-        return;
-      }
-      const endpoint = `https://formspree.io/f/${FORMSPREE_ID}`;
+      const endpoint = 'https://formspree.io/f/mnpqagzj';
 
       const res = await fetch(endpoint, {
         method: 'POST',
@@ -1750,6 +1738,14 @@ const ResumeDownload = (() => {
       }
       
       btn.classList.add('is-loading');
+
+      const downloadLink = document.createElement('a');
+      downloadLink.href = 'public/resume/Muhammad%20Arsalan%20Khan%20CV.pdf';
+      downloadLink.download = 'Muhammad Arsalan Khan CV.pdf';
+      downloadLink.hidden = true;
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      downloadLink.remove();
       
       setTimeout(() => {
         btn.classList.remove('is-loading');

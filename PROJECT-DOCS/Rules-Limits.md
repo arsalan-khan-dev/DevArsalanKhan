@@ -13,15 +13,15 @@
 
 ## Things I DID fix outright (no client input needed)
 - Profile photo wired into About section
-- All 6 project screenshots wired into project cards
-- Stat mismatch (20 vs 6 projects) corrected to match actual project count
+- All current project screenshots wired into project cards
+- Project count is kept consistent at 8 across the portfolio
 - Dead JS files deleted (main.js, projects.js, chatbot.js)
 - Certifications section removed per instruction
 - Skills section rebuilt to modern web + security stack only
 - Broken `assets/{...}` brace-expansion folder removed; all paths now point to real files
 
 ## Follow-up checklist for you
-- [ ] Create Formspree form, paste ID into script.js
+- [x] Connect contact form to Formspree endpoint in script.js
 - [ ] Add real resume PDF to public/resume/
 - [ ] Add a real 1200x630 og-image.jpg to public/
 - [ ] Confirm/paste real repo + live demo URLs for the 4 unverified projects
