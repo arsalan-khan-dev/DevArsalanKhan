@@ -2880,10 +2880,13 @@ header[role="banner"] {
   .timeline__entry:nth-child(even) .timeline__card {
     grid-column: 1;
     grid-row: auto;
-    padding-left: 0;
-    padding-right: 0;
     text-align: left;
   }
+  .timeline__entry,
+  .timeline__date,
+  .timeline__card { min-width: 0; }
+  .timeline__entry:nth-child(odd) .timeline__date,
+  .timeline__entry:nth-child(even) .timeline__date { padding-left: 0; padding-right: 0; }
   .timeline__entry:nth-child(odd) .timeline__tags { justify-content: flex-start; }
 
   /* Skills */
