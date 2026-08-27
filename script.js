@@ -953,6 +953,39 @@ const ProjectModalManager = (() => {
       ]
     },
     {
+      id: 'brightbyte-dental-system',
+      title: 'BrightByte Dental System',
+      category: 'Full-Stack Web Dev',
+      categoryTag: 'web',
+      image: 'images/projects/brightbyte-dental-1.jpg',
+      shortDesc: 'A modern dental clinic management system built with clean UI, appointment management, patient records, billing, authentication, and scalable architecture.',
+      longDesc: 'BrightByte Dental System is a modern dental clinic management system designed to provide a clean digital experience for managing dental clinic operations.',
+      problem: 'Dental clinics need a centralized system for managing appointments, patient information, billing, and authentication instead of handling these operations separately.',
+      solution: 'Built a modern dental management interface with appointment management, patient records, billing functionality, authentication, and a responsive user interface.',
+      outcome: 'Provides a centralized and organized digital system for managing important dental clinic operations while maintaining a clean and professional user experience.',
+      techStack: ['HTML5', 'CSS3', 'JavaScript'],
+      links: [
+        { label: 'GitHub', url: 'https://github.com/arsalan-khan-dev/brightbyte-dental-system', icon: 'github' },
+        { label: 'Live Demo', url: 'https://arsalan-khan-dev.github.io/brightbyte-dental-system/', icon: 'external-link' }
+      ]
+    },
+    {
+      id: 'quick-turn-auto-keys',
+      title: 'Quick Turn Auto Keys',
+      category: 'Full-Stack Web Dev',
+      categoryTag: 'web',
+      image: 'images/projects/quick-turn-auto-keys-1.jpg',
+      shortDesc: 'A professional 37-page responsive static website for a 24/7 mobile automotive locksmith service, covering car key replacement, programming, repairs, lockouts, ignition services, service areas, vehicle brands, FAQs, blog content, and customer enquiries.',
+      longDesc: 'A professional 37-page static website created for Quick Turn Auto Keys, a 24/7 mobile automotive locksmith service serving London and surrounding areas.',
+      problem: 'The business needed a professional and informative online presence that could clearly present its locksmith services, supported vehicle brands, service areas, and contact options.',
+      solution: 'Developed a complete responsive static website using HTML5, CSS3, and Vanilla JavaScript with dedicated pages for services, vehicle brands, service areas, FAQs, blog content, about information, and contact/quote functionality.',
+      outcome: 'Created a professional mobile-friendly website that helps customers quickly understand the available services and contact the business for automotive locksmith assistance.',
+      techStack: ['HTML5', 'CSS3', 'JavaScript'],
+      links: [
+        { label: 'Live Demo', url: 'https://auttokeys.com/', icon: 'external-link' }
+      ]
+    },
+    {
       id: 'car-hub',
       title: 'Car Hub — Rental Management System',
       category: 'Full-Stack Web Dev',
