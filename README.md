@@ -22,7 +22,7 @@ Awwwards-level personal portfolio built with pure HTML5, CSS3 and Vanilla JavaSc
 [![WCAG 2.1 AA](https://img.shields.io/badge/WCAG_2.1-AA-005A9C?style=flat-square)](#)
 [![No Build Step](https://img.shields.io/badge/Build_Step-None-lightgrey?style=flat-square)](#)
 
-[Live Preview](https://arsalan-khan-dev.github.io/portfolio-website/) · [Report Bug](https://github.com/arsalan-khan-dev/portfolio-website/issues) · [Request Feature](https://github.com/arsalan-khan-dev/portfolio-website/issues)
+[Live Preview](https://arsalan-khan-dev.github.io/DevArsalanKhan/) · [Report Bug](https://github.com/arsalan-khan-dev/portfolio-website/issues) · [Request Feature](https://github.com/arsalan-khan-dev/portfolio-website/issues)
 
 </div>
 
